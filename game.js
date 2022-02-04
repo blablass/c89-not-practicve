@@ -30,5 +30,38 @@ function sendquestion(){
     document.getElementById("output").innerHTML = row
     document.getElementById("word").value = ""
 }
+question_turn = "player1";
+answer_turn = "player2";
 
-    
+function check(){
+    answer = document.getElementById("inputplease").value
+    lower =answer.toLowerCase()
+    if (answer==getword){
+        if(answer_turn=="player1"){
+            player1score = player1score+1
+            document.getElementById("player1score").innerHTML = player1score
+        }
+        else{
+            player2score = player2score+1
+            document.getElementById("player2score").innerHTML = player2score
+        }
+    }
+        if(question_turn=="player1"){
+            question_turn = "player2"
+            document.getElementById("playerq").innerHTML = "questionturn:" + player2name
+        }
+        else{
+            question_turn = "player1"
+            document.getElementById("playerq").innerHTML = "questionturn:" + player1name
+        }
+        //
+        if(answer_turn=="player1"){
+            answer_turn = "player2"
+            document.getElementById("playera").innerHTML = "answerturn:" + player2name
+        }
+        else{
+            answer_turn = "player1"
+            document.getElementById("playera").innerHTML = "answerturn:" + player1name
+        }
+        document.getElementById("output").innerHTML = ""
+}
